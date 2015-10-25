@@ -16,7 +16,7 @@
 
 	if (!isset($_REQUEST['logno']) || $_REQUEST['logno'] == 0)
 		die("the log entry number not specified!");
-	$logno=$_REQUEST['logno'];
+	$logno=mysql_real_escape_string($_REQUEST['logno']);
 
 	mysql_query("delete from log where serno=$serno and logno=$logno");
 
